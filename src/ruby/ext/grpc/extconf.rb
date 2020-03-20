@@ -82,7 +82,7 @@ output = File.join('grpc', 'grpc_c')
 puts 'Generating Makefile for ' + output
 create_makefile(output)
 
-strip_tool = RbConfig::CONFIG['STRIP']
+strip_tool = RbConfig::CONFIG['STRIP'] || 'strip -S -x'
 strip_tool = 'strip -x' if RUBY_PLATFORM =~ /darwin/
 
 if grpc_config == 'opt'
